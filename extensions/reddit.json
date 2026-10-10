@@ -1,0 +1,38 @@
+{
+  "id": "com.share2gemini.ext.reddit",
+  "name": "Reddit Video & Media Downloader",
+  "version": "1.0.0",
+  "description": "Extract videos (v.redd.it) and high-res images from Reddit posts natively.",
+  "author": "Priydarshansingh",
+  "platform": "reddit",
+  "supportedDomains": [
+    "reddit.com",
+    "redd.it",
+    "v.redd.it",
+    "www.reddit.com"
+  ],
+  "urlPatterns": [
+    "^https?://(www\\.)?(reddit\\.com/r/.+/comments/\\w+|redd\\.it/\\w+|v\\.redd\\.it/\\w+).*"
+  ],
+  "strategy": "hybrid",
+  "apiEndpoints": [
+    {
+      "url": "{{REDDIT_JSON}}",
+      "method": "GET",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Android; Mobile; rv:120.0) Gecko/120.0 Firefox/120.0"
+      },
+      "responsePath": "reddit_native"
+    },
+    {
+      "url": "https://api.cobalt.tools",
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "bodyTemplate": "{\"url\": \"{{URL}}\"}",
+      "responsePath": "url"
+    }
+  ]
+}

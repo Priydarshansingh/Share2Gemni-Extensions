@@ -1,0 +1,179 @@
+{
+  "repository": "Share2Gemni-Extensions",
+  "version": "1.0.0",
+  "updatedAt": "2026-10-10",
+  "extensions": [
+    {
+      "id": "com.share2gemini.ext.instagram",
+      "name": "Instagram Downloader",
+      "version": "1.0.0",
+      "description": "Download Instagram Reels, Video Posts, and Stories directly for Gemini AI analysis.",
+      "author": "Priydarshansingh",
+      "platform": "instagram",
+      "supportedDomains": [
+        "instagram.com",
+        "instagr.am",
+        "www.instagram.com"
+      ],
+      "urlPatterns": [
+        "^https?://(www\\.)?instagram\\.com/(reel|reels|p|stories|tv)/[A-Za-z0-9_-]+.*"
+      ],
+      "strategy": "hybrid",
+      "apiEndpoints": [
+        {
+          "url": "https://api.cobalt.tools",
+          "method": "POST",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "bodyTemplate": "{\"url\": \"{{URL}}\", \"videoQuality\": \"720\"}",
+          "responsePath": "url"
+        }
+      ],
+      "htmlExtractRules": {
+        "ogVideo": "meta[property='og:video']",
+        "ogImage": "meta[property='og:image']"
+      }
+    },
+    {
+      "id": "com.share2gemini.ext.youtube",
+      "name": "YouTube & Shorts Downloader",
+      "version": "1.0.0",
+      "description": "Download YouTube videos and Shorts seamlessly for Gemini summarization.",
+      "author": "Priydarshansingh",
+      "platform": "youtube",
+      "supportedDomains": [
+        "youtube.com",
+        "youtu.be",
+        "www.youtube.com",
+        "m.youtube.com"
+      ],
+      "urlPatterns": [
+        "^https?://(www\\.|m\\.)?(youtube\\.com|youtu\\.be)/(watch\\?v=|shorts/|[A-Za-z0-9_-]+).*"
+      ],
+      "strategy": "hybrid",
+      "apiEndpoints": [
+        {
+          "url": "https://api.cobalt.tools",
+          "method": "POST",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "bodyTemplate": "{\"url\": \"{{URL}}\", \"videoQuality\": \"720\"}",
+          "responsePath": "url"
+        }
+      ]
+    },
+    {
+      "id": "com.share2gemini.ext.twitter",
+      "name": "Twitter / X Media Downloader",
+      "version": "1.0.0",
+      "description": "Download videos, GIFs, and media attachments from tweets on Twitter and X.",
+      "author": "Priydarshansingh",
+      "platform": "twitter",
+      "supportedDomains": [
+        "twitter.com",
+        "x.com",
+        "www.twitter.com",
+        "www.x.com"
+      ],
+      "urlPatterns": [
+        "^https?://(www\\.)?(twitter\\.com|x\\.com)/.+/status/\\d+.*"
+      ],
+      "strategy": "hybrid",
+      "apiEndpoints": [
+        {
+          "url": "https://api.vxtwitter.com/{{PATH}}",
+          "method": "GET",
+          "headers": {
+            "Accept": "application/json"
+          },
+          "responsePath": "media_extended.0.url"
+        },
+        {
+          "url": "https://api.cobalt.tools",
+          "method": "POST",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
+          "responsePath": "url"
+        }
+      ]
+    },
+    {
+      "id": "com.share2gemini.ext.reddit",
+      "name": "Reddit Video & Media Downloader",
+      "version": "1.0.0",
+      "description": "Extract videos (v.redd.it) and high-res images from Reddit posts natively.",
+      "author": "Priydarshansingh",
+      "platform": "reddit",
+      "supportedDomains": [
+        "reddit.com",
+        "redd.it",
+        "v.redd.it",
+        "www.reddit.com"
+      ],
+      "urlPatterns": [
+        "^https?://(www\\.)?(reddit\\.com/r/.+/comments/\\w+|redd\\.it/\\w+|v\\.redd\\.it/\\w+).*"
+      ],
+      "strategy": "hybrid",
+      "apiEndpoints": [
+        {
+          "url": "{{REDDIT_JSON}}",
+          "method": "GET",
+          "headers": {
+            "User-Agent": "Mozilla/5.0 (Android; Mobile; rv:120.0) Gecko/120.0 Firefox/120.0"
+          },
+          "responsePath": "reddit_native"
+        },
+        {
+          "url": "https://api.cobalt.tools",
+          "method": "POST",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
+          "responsePath": "url"
+        }
+      ]
+    },
+    {
+      "id": "com.share2gemini.ext.pinterest",
+      "name": "Pinterest Pin Media Downloader",
+      "version": "1.0.0",
+      "description": "Download Pinterest pins, idea pins, video pins, and high-res images.",
+      "author": "Priydarshansingh",
+      "platform": "pinterest",
+      "supportedDomains": [
+        "pinterest.com",
+        "pin.it",
+        "www.pinterest.com"
+      ],
+      "urlPatterns": [
+        "^https?://(www\\.)?(pinterest\\.com/pin/\\d+|pin\\.it/\\w+).*"
+      ],
+      "strategy": "hybrid",
+      "apiEndpoints": [
+        {
+          "url": "https://api.cobalt.tools",
+          "method": "POST",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
+          "responsePath": "url"
+        }
+      ],
+      "htmlExtractRules": {
+        "ogVideo": "meta[property='og:video']",
+        "ogImage": "meta[property='og:image']"
+      }
+    }
+  ]
+}

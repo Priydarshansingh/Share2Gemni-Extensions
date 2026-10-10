@@ -1,0 +1,30 @@
+{
+  "id": "com.share2gemini.ext.youtube",
+  "name": "YouTube & Shorts Downloader",
+  "version": "1.0.0",
+  "description": "Download YouTube videos and Shorts seamlessly for Gemini summarization.",
+  "author": "Priydarshansingh",
+  "platform": "youtube",
+  "supportedDomains": [
+    "youtube.com",
+    "youtu.be",
+    "www.youtube.com",
+    "m.youtube.com"
+  ],
+  "urlPatterns": [
+    "^https?://(www\\.|m\\.)?(youtube\\.com|youtu\\.be)/(watch\\?v=|shorts/|[A-Za-z0-9_-]+).*"
+  ],
+  "strategy": "hybrid",
+  "apiEndpoints": [
+    {
+      "url": "https://api.cobalt.tools",
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "bodyTemplate": "{\"url\": \"{{URL}}\", \"videoQuality\": \"720\"}",
+      "responsePath": "url"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "com.share2gemini.ext.pinterest",
+  "name": "Pinterest Pin Media Downloader",
+  "version": "1.0.0",
+  "description": "Download Pinterest pins, idea pins, video pins, and high-res images.",
+  "author": "Priydarshansingh",
+  "platform": "pinterest",
+  "supportedDomains": [
+    "pinterest.com",
+    "pin.it",
+    "www.pinterest.com"
+  ],
+  "urlPatterns": [
+    "^https?://(www\\.)?(pinterest\\.com/pin/\\d+|pin\\.it/\\w+).*"
+  ],
+  "strategy": "hybrid",
+  "apiEndpoints": [
+    {
+      "url": "https://api.cobalt.tools",
+      "method": "POST",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "bodyTemplate": "{\"url\": \"{{URL}}\"}",
+      "responsePath": "url"
+    }
+  ],
+  "htmlExtractRules": {
+    "ogVideo": "meta[property='og:video']",
+    "ogImage": "meta[property='og:image']"
+  }
+}
