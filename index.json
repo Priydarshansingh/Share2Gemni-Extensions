@@ -1,6 +1,6 @@
 {
   "repository": "Share2Gemni-Extensions",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "updatedAt": "2026-10-12",
   "extensions": [
     {
@@ -92,6 +92,68 @@
           },
           "responsePath": "media_extended.0.url"
         },
+        {
+          "url": "https://api.cobalt.tools",
+          "method": "POST",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
+          "responsePath": "url"
+        }
+      ]
+    },
+    {
+      "id": "com.share2gemini.ext.tiktok",
+      "name": "TikTok Video & Media Downloader",
+      "version": "1.2.0",
+      "description": "Download TikTok videos, slideshows, and stories without watermarks using yt-dlp & FFmpeg natively for Gemini AI.",
+      "author": "Priydarshansingh",
+      "platform": "tiktok",
+      "supportedDomains": [
+        "tiktok.com",
+        "vt.tiktok.com",
+        "vm.tiktok.com",
+        "www.tiktok.com",
+        "m.tiktok.com"
+      ],
+      "urlPatterns": [
+        "^https?://(www\\.|vt\\.|vm\\.|m\\.)?tiktok\\.com/(@[A-Za-z0-9_.-]+/video/\\d+|\\w+).*"
+      ],
+      "strategy": "yt-dlp",
+      "apiEndpoints": [
+        {
+          "url": "https://api.cobalt.tools",
+          "method": "POST",
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
+          "responsePath": "url"
+        }
+      ]
+    },
+    {
+      "id": "com.share2gemini.ext.facebook",
+      "name": "Facebook Video & Reels Downloader",
+      "version": "1.2.0",
+      "description": "Download Facebook Reels, Watch videos, and public video posts natively using yt-dlp & FFmpeg.",
+      "author": "Priydarshansingh",
+      "platform": "facebook",
+      "supportedDomains": [
+        "facebook.com",
+        "fb.watch",
+        "www.facebook.com",
+        "m.facebook.com",
+        "fb.com"
+      ],
+      "urlPatterns": [
+        "^https?://(www\\.|m\\.)?(facebook\\.com/(reel/\\d+|watch/\\?v=\\d+|.+/videos/\\d+)|fb\\.watch/\\w+).*"
+      ],
+      "strategy": "yt-dlp",
+      "apiEndpoints": [
         {
           "url": "https://api.cobalt.tools",
           "method": "POST",
