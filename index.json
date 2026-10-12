@@ -1,13 +1,13 @@
 {
   "repository": "Share2Gemni-Extensions",
-  "version": "1.0.0",
-  "updatedAt": "2026-10-10",
+  "version": "1.1.0",
+  "updatedAt": "2026-10-12",
   "extensions": [
     {
       "id": "com.share2gemini.ext.instagram",
       "name": "Instagram Downloader",
-      "version": "1.0.0",
-      "description": "Download Instagram Reels, Video Posts, and Stories directly for Gemini AI analysis.",
+      "version": "1.1.0",
+      "description": "Download Instagram Reels, Video Posts, and Stories directly using yt-dlp & FFmpeg for Gemini AI analysis.",
       "author": "Priydarshansingh",
       "platform": "instagram",
       "supportedDomains": [
@@ -18,7 +18,7 @@
       "urlPatterns": [
         "^https?://(www\\.)?instagram\\.com/(reel|reels|p|stories|tv)/[A-Za-z0-9_-]+.*"
       ],
-      "strategy": "hybrid",
+      "strategy": "yt-dlp",
       "apiEndpoints": [
         {
           "url": "https://api.cobalt.tools",
@@ -39,8 +39,8 @@
     {
       "id": "com.share2gemini.ext.youtube",
       "name": "YouTube & Shorts Downloader",
-      "version": "1.0.0",
-      "description": "Download YouTube videos and Shorts seamlessly for Gemini summarization.",
+      "version": "1.1.0",
+      "description": "Download YouTube videos and Shorts seamlessly using native yt-dlp & FFmpeg for Gemini summarization.",
       "author": "Priydarshansingh",
       "platform": "youtube",
       "supportedDomains": [
@@ -52,7 +52,7 @@
       "urlPatterns": [
         "^https?://(www\\.|m\\.)?(youtube\\.com|youtu\\.be)/(watch\\?v=|shorts/|[A-Za-z0-9_-]+).*"
       ],
-      "strategy": "hybrid",
+      "strategy": "yt-dlp",
       "apiEndpoints": [
         {
           "url": "https://api.cobalt.tools",
@@ -69,8 +69,8 @@
     {
       "id": "com.share2gemini.ext.twitter",
       "name": "Twitter / X Media Downloader",
-      "version": "1.0.0",
-      "description": "Download videos, GIFs, and media attachments from tweets on Twitter and X.",
+      "version": "1.1.0",
+      "description": "Download videos, GIFs, and media attachments from tweets on Twitter and X with native yt-dlp.",
       "author": "Priydarshansingh",
       "platform": "twitter",
       "supportedDomains": [
@@ -82,7 +82,7 @@
       "urlPatterns": [
         "^https?://(www\\.)?(twitter\\.com|x\\.com)/.+/status/\\d+.*"
       ],
-      "strategy": "hybrid",
+      "strategy": "yt-dlp",
       "apiEndpoints": [
         {
           "url": "https://api.vxtwitter.com/{{PATH}}",
@@ -107,8 +107,8 @@
     {
       "id": "com.share2gemini.ext.reddit",
       "name": "Reddit Video & Media Downloader",
-      "version": "1.0.0",
-      "description": "Extract videos (v.redd.it) and high-res images from Reddit posts natively.",
+      "version": "1.1.0",
+      "description": "Extract videos (v.redd.it) and media from Reddit posts using yt-dlp & FFmpeg natively.",
       "author": "Priydarshansingh",
       "platform": "reddit",
       "supportedDomains": [
@@ -120,7 +120,7 @@
       "urlPatterns": [
         "^https?://(www\\.)?(reddit\\.com/r/.+/comments/\\w+|redd\\.it/\\w+|v\\.redd\\.it/\\w+).*"
       ],
-      "strategy": "hybrid",
+      "strategy": "yt-dlp",
       "apiEndpoints": [
         {
           "url": "{{REDDIT_JSON}}",
@@ -145,8 +145,8 @@
     {
       "id": "com.share2gemini.ext.pinterest",
       "name": "Pinterest Pin Media Downloader",
-      "version": "1.0.0",
-      "description": "Download Pinterest pins, idea pins, video pins, and high-res images.",
+      "version": "1.1.0",
+      "description": "Download Pinterest pins, idea pins, video pins, and media natively using yt-dlp.",
       "author": "Priydarshansingh",
       "platform": "pinterest",
       "supportedDomains": [
@@ -157,7 +157,7 @@
       "urlPatterns": [
         "^https?://(www\\.)?(pinterest\\.com/pin/\\d+|pin\\.it/\\w+).*"
       ],
-      "strategy": "hybrid",
+      "strategy": "yt-dlp",
       "apiEndpoints": [
         {
           "url": "https://api.cobalt.tools",

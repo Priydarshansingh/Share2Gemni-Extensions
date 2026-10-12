@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.twitter",
   "name": "Twitter / X Media Downloader",
-  "version": "1.0.0",
-  "description": "Download videos, GIFs, and media attachments from tweets on Twitter and X.",
+  "version": "1.1.0",
+  "description": "Download videos, GIFs, and media attachments from tweets on Twitter and X with native yt-dlp.",
   "author": "Priydarshansingh",
   "platform": "twitter",
   "supportedDomains": [
@@ -14,7 +14,7 @@
   "urlPatterns": [
     "^https?://(www\\.)?(twitter\\.com|x\\.com)/.+/status/\\d+.*"
   ],
-  "strategy": "hybrid",
+  "strategy": "yt-dlp",
   "apiEndpoints": [
     {
       "url": "https://api.vxtwitter.com/{{PATH}}",

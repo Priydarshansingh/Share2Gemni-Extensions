@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.pinterest",
   "name": "Pinterest Pin Media Downloader",
-  "version": "1.0.0",
-  "description": "Download Pinterest pins, idea pins, video pins, and high-res images.",
+  "version": "1.1.0",
+  "description": "Download Pinterest pins, idea pins, video pins, and media natively using yt-dlp.",
   "author": "Priydarshansingh",
   "platform": "pinterest",
   "supportedDomains": [
@@ -13,7 +13,7 @@
   "urlPatterns": [
     "^https?://(www\\.)?(pinterest\\.com/pin/\\d+|pin\\.it/\\w+).*"
   ],
-  "strategy": "hybrid",
+  "strategy": "yt-dlp",
   "apiEndpoints": [
     {
       "url": "https://api.cobalt.tools",

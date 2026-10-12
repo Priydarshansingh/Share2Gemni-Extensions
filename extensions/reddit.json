@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.reddit",
   "name": "Reddit Video & Media Downloader",
-  "version": "1.0.0",
-  "description": "Extract videos (v.redd.it) and high-res images from Reddit posts natively.",
+  "version": "1.1.0",
+  "description": "Extract videos (v.redd.it) and media from Reddit posts using yt-dlp & FFmpeg natively.",
   "author": "Priydarshansingh",
   "platform": "reddit",
   "supportedDomains": [
@@ -14,7 +14,7 @@
   "urlPatterns": [
     "^https?://(www\\.)?(reddit\\.com/r/.+/comments/\\w+|redd\\.it/\\w+|v\\.redd\\.it/\\w+).*"
   ],
-  "strategy": "hybrid",
+  "strategy": "yt-dlp",
   "apiEndpoints": [
     {
       "url": "{{REDDIT_JSON}}",
