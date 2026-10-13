@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.instagram",
   "name": "Instagram Downloader",
-  "version": "2.0.0",
-  "description": "Extract Instagram Reels, Video Posts, and Stories directly for Gemini AI analysis. Uses instagrapi for highest quality video extraction.",
+  "version": "1.2.2",
+  "description": "Extract Instagram Reels, Video Posts, and Stories directly for Gemini AI analysis natively.",
   "author": "Priydarshansingh",
   "platform": "instagram",
   "supportedDomains": [
@@ -13,39 +13,10 @@
   "urlPatterns": [
     "^https?://(www\\.)?instagram\\.com/(reel|reels|p|stories|tv)/[A-Za-z0-9_-]+.*"
   ],
-  "strategy": "instagrapi-server",
-  "apiEndpoints": [
-    {
-      "note": "Local instagrapi server (run extensions-repo/servers/instagram/start.sh on your PC)",
-      "url": "http://192.168.1.100:8765/extract",
-      "method": "POST",
-      "headers": {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-      "responsePath": "url"
-    },
-    {
-      "note": "Android emulator host (for testing on emulator only)",
-      "url": "http://10.0.2.2:8765/extract",
-      "method": "POST",
-      "headers": {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-      "responsePath": "url"
-    }
-  ],
+  "strategy": "native-stream",
+  "apiEndpoints": [],
   "htmlExtractRules": {
     "ogVideo": "meta[property='og:video']",
     "ogImage": "meta[property='og:image']"
-  },
-  "serverInfo": {
-    "type": "instagrapi",
-    "repoPath": "servers/instagram/",
-    "setupGuide": "Run start.sh and set IG_USERNAME/IG_PASSWORD in .env",
-    "defaultPort": 8765
   }
 }
