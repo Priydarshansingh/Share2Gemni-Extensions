@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.tiktok",
   "name": "TikTok Video & Media Downloader",
-  "version": "1.2.0",
-  "description": "Download TikTok videos, slideshows, and stories without watermarks using yt-dlp & FFmpeg natively for Gemini AI.",
+  "version": "1.2.1",
+  "description": "Download TikTok videos, slideshows, and stories natively for Gemini AI.",
   "author": "Priydarshansingh",
   "platform": "tiktok",
   "supportedDomains": [
@@ -15,17 +15,6 @@
   "urlPatterns": [
     "^https?://(www\\.|vt\\.|vm\\.|m\\.)?tiktok\\.com/(@[A-Za-z0-9_.-]+/video/\\d+|\\w+).*"
   ],
-  "strategy": "yt-dlp",
-  "apiEndpoints": [
-    {
-      "url": "https://api.cobalt.tools",
-      "method": "POST",
-      "headers": {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-      "responsePath": "url"
-    }
-  ]
+  "strategy": "native-stream",
+  "apiEndpoints": []
 }

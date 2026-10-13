@@ -1,13 +1,13 @@
 {
   "repository": "Share2Gemni-Extensions",
-  "version": "1.2.0",
-  "updatedAt": "2026-10-12",
+  "version": "1.2.1",
+  "updatedAt": "2026-10-13",
   "extensions": [
     {
       "id": "com.share2gemini.ext.instagram",
       "name": "Instagram Downloader",
-      "version": "1.1.0",
-      "description": "Download Instagram Reels, Video Posts, and Stories directly using yt-dlp & FFmpeg for Gemini AI analysis.",
+      "version": "1.2.1",
+      "description": "Extract Instagram Reels, Video Posts, and Stories directly for Gemini AI analysis.",
       "author": "Priydarshansingh",
       "platform": "instagram",
       "supportedDomains": [
@@ -18,19 +18,8 @@
       "urlPatterns": [
         "^https?://(www\\.)?instagram\\.com/(reel|reels|p|stories|tv)/[A-Za-z0-9_-]+.*"
       ],
-      "strategy": "yt-dlp",
-      "apiEndpoints": [
-        {
-          "url": "https://api.cobalt.tools",
-          "method": "POST",
-          "headers": {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          "bodyTemplate": "{\"url\": \"{{URL}}\", \"videoQuality\": \"720\"}",
-          "responsePath": "url"
-        }
-      ],
+      "strategy": "native-stream",
+      "apiEndpoints": [],
       "htmlExtractRules": {
         "ogVideo": "meta[property='og:video']",
         "ogImage": "meta[property='og:image']"
@@ -39,8 +28,8 @@
     {
       "id": "com.share2gemini.ext.youtube",
       "name": "YouTube & Shorts Downloader",
-      "version": "1.1.0",
-      "description": "Download YouTube videos and Shorts seamlessly using native yt-dlp & FFmpeg for Gemini summarization.",
+      "version": "1.2.1",
+      "description": "Download YouTube videos and Shorts seamlessly for Gemini summarization.",
       "author": "Priydarshansingh",
       "platform": "youtube",
       "supportedDomains": [
@@ -52,25 +41,14 @@
       "urlPatterns": [
         "^https?://(www\\.|m\\.)?(youtube\\.com|youtu\\.be)/(watch\\?v=|shorts/|[A-Za-z0-9_-]+).*"
       ],
-      "strategy": "yt-dlp",
-      "apiEndpoints": [
-        {
-          "url": "https://api.cobalt.tools",
-          "method": "POST",
-          "headers": {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          "bodyTemplate": "{\"url\": \"{{URL}}\", \"videoQuality\": \"720\"}",
-          "responsePath": "url"
-        }
-      ]
+      "strategy": "native-stream",
+      "apiEndpoints": []
     },
     {
       "id": "com.share2gemini.ext.twitter",
       "name": "Twitter / X Media Downloader",
-      "version": "1.1.0",
-      "description": "Download videos, GIFs, and media attachments from tweets on Twitter and X with native yt-dlp.",
+      "version": "1.2.1",
+      "description": "Download videos, GIFs, and media attachments from tweets on Twitter and X for Gemini analysis.",
       "author": "Priydarshansingh",
       "platform": "twitter",
       "supportedDomains": [
@@ -82,7 +60,7 @@
       "urlPatterns": [
         "^https?://(www\\.)?(twitter\\.com|x\\.com)/.+/status/\\d+.*"
       ],
-      "strategy": "yt-dlp",
+      "strategy": "native-stream",
       "apiEndpoints": [
         {
           "url": "https://api.vxtwitter.com/{{PATH}}",
@@ -91,24 +69,14 @@
             "Accept": "application/json"
           },
           "responsePath": "media_extended.0.url"
-        },
-        {
-          "url": "https://api.cobalt.tools",
-          "method": "POST",
-          "headers": {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-          "responsePath": "url"
         }
       ]
     },
     {
       "id": "com.share2gemini.ext.tiktok",
       "name": "TikTok Video & Media Downloader",
-      "version": "1.2.0",
-      "description": "Download TikTok videos, slideshows, and stories without watermarks using yt-dlp & FFmpeg natively for Gemini AI.",
+      "version": "1.2.1",
+      "description": "Download TikTok videos, slideshows, and stories natively for Gemini AI.",
       "author": "Priydarshansingh",
       "platform": "tiktok",
       "supportedDomains": [
@@ -121,25 +89,14 @@
       "urlPatterns": [
         "^https?://(www\\.|vt\\.|vm\\.|m\\.)?tiktok\\.com/(@[A-Za-z0-9_.-]+/video/\\d+|\\w+).*"
       ],
-      "strategy": "yt-dlp",
-      "apiEndpoints": [
-        {
-          "url": "https://api.cobalt.tools",
-          "method": "POST",
-          "headers": {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-          "responsePath": "url"
-        }
-      ]
+      "strategy": "native-stream",
+      "apiEndpoints": []
     },
     {
       "id": "com.share2gemini.ext.facebook",
       "name": "Facebook Video & Reels Downloader",
-      "version": "1.2.0",
-      "description": "Download Facebook Reels, Watch videos, and public video posts natively using yt-dlp & FFmpeg.",
+      "version": "1.2.1",
+      "description": "Download Facebook Reels, Watch videos, and public video posts natively.",
       "author": "Priydarshansingh",
       "platform": "facebook",
       "supportedDomains": [
@@ -152,25 +109,14 @@
       "urlPatterns": [
         "^https?://(www\\.|m\\.)?(facebook\\.com/(reel/\\d+|watch/\\?v=\\d+|.+/videos/\\d+)|fb\\.watch/\\w+).*"
       ],
-      "strategy": "yt-dlp",
-      "apiEndpoints": [
-        {
-          "url": "https://api.cobalt.tools",
-          "method": "POST",
-          "headers": {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-          "responsePath": "url"
-        }
-      ]
+      "strategy": "native-stream",
+      "apiEndpoints": []
     },
     {
       "id": "com.share2gemini.ext.reddit",
       "name": "Reddit Video & Media Downloader",
-      "version": "1.1.0",
-      "description": "Extract videos (v.redd.it) and media from Reddit posts using yt-dlp & FFmpeg natively.",
+      "version": "1.2.1",
+      "description": "Extract videos (v.redd.it) and media from Reddit posts natively.",
       "author": "Priydarshansingh",
       "platform": "reddit",
       "supportedDomains": [
@@ -182,7 +128,7 @@
       "urlPatterns": [
         "^https?://(www\\.)?(reddit\\.com/r/.+/comments/\\w+|redd\\.it/\\w+|v\\.redd\\.it/\\w+).*"
       ],
-      "strategy": "yt-dlp",
+      "strategy": "native-stream",
       "apiEndpoints": [
         {
           "url": "{{REDDIT_JSON}}",
@@ -191,24 +137,14 @@
             "User-Agent": "Mozilla/5.0 (Android; Mobile; rv:120.0) Gecko/120.0 Firefox/120.0"
           },
           "responsePath": "reddit_native"
-        },
-        {
-          "url": "https://api.cobalt.tools",
-          "method": "POST",
-          "headers": {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-          "responsePath": "url"
         }
       ]
     },
     {
       "id": "com.share2gemini.ext.pinterest",
       "name": "Pinterest Pin Media Downloader",
-      "version": "1.1.0",
-      "description": "Download Pinterest pins, idea pins, video pins, and media natively using yt-dlp.",
+      "version": "1.2.1",
+      "description": "Download Pinterest pins, idea pins, video pins, and media natively.",
       "author": "Priydarshansingh",
       "platform": "pinterest",
       "supportedDomains": [
@@ -219,19 +155,8 @@
       "urlPatterns": [
         "^https?://(www\\.)?(pinterest\\.com/pin/\\d+|pin\\.it/\\w+).*"
       ],
-      "strategy": "yt-dlp",
-      "apiEndpoints": [
-        {
-          "url": "https://api.cobalt.tools",
-          "method": "POST",
-          "headers": {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-          "responsePath": "url"
-        }
-      ],
+      "strategy": "native-stream",
+      "apiEndpoints": [],
       "htmlExtractRules": {
         "ogVideo": "meta[property='og:video']",
         "ogImage": "meta[property='og:image']"

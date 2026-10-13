@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.facebook",
   "name": "Facebook Video & Reels Downloader",
-  "version": "1.2.0",
-  "description": "Download Facebook Reels, Watch videos, and public video posts natively using yt-dlp & FFmpeg.",
+  "version": "1.2.1",
+  "description": "Download Facebook Reels, Watch videos, and public video posts natively.",
   "author": "Priydarshansingh",
   "platform": "facebook",
   "supportedDomains": [
@@ -15,17 +15,6 @@
   "urlPatterns": [
     "^https?://(www\\.|m\\.)?(facebook\\.com/(reel/\\d+|watch/\\?v=\\d+|.+/videos/\\d+)|fb\\.watch/\\w+).*"
   ],
-  "strategy": "yt-dlp",
-  "apiEndpoints": [
-    {
-      "url": "https://api.cobalt.tools",
-      "method": "POST",
-      "headers": {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      "bodyTemplate": "{\"url\": \"{{URL}}\"}",
-      "responsePath": "url"
-    }
-  ]
+  "strategy": "native-stream",
+  "apiEndpoints": []
 }

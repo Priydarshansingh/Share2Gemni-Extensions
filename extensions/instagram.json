@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.instagram",
   "name": "Instagram Downloader",
-  "version": "1.1.0",
-  "description": "Download Instagram Reels, Video Posts, and Stories directly using yt-dlp & FFmpeg for Gemini AI analysis.",
+  "version": "1.2.1",
+  "description": "Extract Instagram Reels, Video Posts, and Stories directly for Gemini AI analysis.",
   "author": "Priydarshansingh",
   "platform": "instagram",
   "supportedDomains": [
@@ -13,19 +13,8 @@
   "urlPatterns": [
     "^https?://(www\\.)?instagram\\.com/(reel|reels|p|stories|tv)/[A-Za-z0-9_-]+.*"
   ],
-  "strategy": "yt-dlp",
-  "apiEndpoints": [
-    {
-      "url": "https://api.cobalt.tools",
-      "method": "POST",
-      "headers": {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      "bodyTemplate": "{\"url\": \"{{URL}}\", \"videoQuality\": \"720\"}",
-      "responsePath": "url"
-    }
-  ],
+  "strategy": "native-stream",
+  "apiEndpoints": [],
   "htmlExtractRules": {
     "ogVideo": "meta[property='og:video']",
     "ogImage": "meta[property='og:image']"

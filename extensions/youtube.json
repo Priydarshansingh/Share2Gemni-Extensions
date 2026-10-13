@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.youtube",
   "name": "YouTube & Shorts Downloader",
-  "version": "1.1.0",
-  "description": "Download YouTube videos and Shorts seamlessly using native yt-dlp & FFmpeg for Gemini summarization.",
+  "version": "1.2.1",
+  "description": "Download YouTube videos and Shorts seamlessly for Gemini summarization.",
   "author": "Priydarshansingh",
   "platform": "youtube",
   "supportedDomains": [
@@ -14,17 +14,6 @@
   "urlPatterns": [
     "^https?://(www\\.|m\\.)?(youtube\\.com|youtu\\.be)/(watch\\?v=|shorts/|[A-Za-z0-9_-]+).*"
   ],
-  "strategy": "yt-dlp",
-  "apiEndpoints": [
-    {
-      "url": "https://api.cobalt.tools",
-      "method": "POST",
-      "headers": {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      "bodyTemplate": "{\"url\": \"{{URL}}\", \"videoQuality\": \"720\"}",
-      "responsePath": "url"
-    }
-  ]
+  "strategy": "native-stream",
+  "apiEndpoints": []
 }
