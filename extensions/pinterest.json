@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.pinterest",
   "name": "Pinterest Pin Media Downloader",
-  "version": "1.2.1",
-  "description": "Download Pinterest pins, idea pins, video pins, and media natively.",
+  "version": "1.2.2",
+  "description": "Download Pinterest video pins and media natively.",
   "author": "Priydarshansingh",
   "platform": "pinterest",
   "supportedDomains": [
@@ -16,7 +16,6 @@
   "strategy": "native-stream",
   "apiEndpoints": [],
   "htmlExtractRules": {
-    "ogVideo": "meta[property='og:video']",
-    "ogImage": "meta[property='og:image']"
+    "ogVideo": "meta[property='og:video']"
   }
 }

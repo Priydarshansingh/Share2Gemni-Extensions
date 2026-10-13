@@ -1,8 +1,8 @@
 {
   "id": "com.share2gemini.ext.instagram",
   "name": "Instagram Downloader",
-  "version": "1.2.2",
-  "description": "Extract Instagram Reels, Video Posts, and Stories directly for Gemini AI analysis natively.",
+  "version": "1.2.3",
+  "description": "Extract Instagram Reels, Video Posts, and Stories directly for Gemini AI analysis. Video stream only, no image fallbacks.",
   "author": "Priydarshansingh",
   "platform": "instagram",
   "supportedDomains": [
@@ -16,7 +16,6 @@
   "strategy": "native-stream",
   "apiEndpoints": [],
   "htmlExtractRules": {
-    "ogVideo": "meta[property='og:video']",
-    "ogImage": "meta[property='og:image']"
+    "ogVideo": "meta[property='og:video']"
   }
 }
